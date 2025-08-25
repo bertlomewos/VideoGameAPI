@@ -35,7 +35,7 @@ namespace VideoGameAPI.Migrations
                     b.Property<string>("Developer")
                         .HasColumnType("text");
 
-                    b.Property<string>("GameImageURL")
+                    b.Property<string>("GameImageIconURL")
                         .HasColumnType("text");
 
                     b.Property<string>("GameLinkDownloadURL")

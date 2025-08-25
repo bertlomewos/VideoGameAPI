@@ -1,46 +1,47 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace VideoGameAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class updatedVideoGame : Migration
+    public partial class addedMoreVideoGames : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "GameImageIconURL",
+                name: "GameBanerImageURL",
                 table: "videoGames",
                 type: "text",
                 nullable: true);
 
-            migrationBuilder.AddColumn<string>(
-                name: "GameLinkDownloadURL",
+            migrationBuilder.AddColumn<List<string>>(
+                name: "GameScreenShootImageURLs",
                 table: "videoGames",
-                type: "text",
+                type: "text[]",
                 nullable: true);
 
             migrationBuilder.UpdateData(
                 table: "videoGames",
                 keyColumn: "Id",
                 keyValue: 1,
-                columns: new[] { "GameImageIconURL", "GameLinkDownloadURL" },
+                columns: new[] { "GameBanerImageURL", "GameScreenShootImageURLs" },
                 values: new object[] { null, null });
 
             migrationBuilder.UpdateData(
                 table: "videoGames",
                 keyColumn: "Id",
                 keyValue: 2,
-                columns: new[] { "GameImageIconURL", "GameLinkDownloadURL" },
+                columns: new[] { "GameBanerImageURL", "GameScreenShootImageURLs" },
                 values: new object[] { null, null });
 
             migrationBuilder.UpdateData(
                 table: "videoGames",
                 keyColumn: "Id",
                 keyValue: 3,
-                columns: new[] { "GameImageIconURL", "GameLinkDownloadURL" },
+                columns: new[] { "GameBanerImageURL", "GameScreenShootImageURLs" },
                 values: new object[] { null, null });
         }
 
@@ -48,11 +49,11 @@ namespace VideoGameAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "GameImageIconURL",
+                name: "GameBanerImageURL",
                 table: "videoGames");
 
             migrationBuilder.DropColumn(
-                name: "GameLinkDownloadURL",
+                name: "GameScreenShootImageURLs",
                 table: "videoGames");
         }
     }

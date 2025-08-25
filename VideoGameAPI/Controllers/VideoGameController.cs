@@ -49,7 +49,9 @@ namespace VideoGameAPI.Controllers
             game.Platform = updatedGame.Platform;   
             game.Developer = updatedGame.Developer;
             game.Publisher = updatedGame.Publisher;
-            game.GameImageURL = updatedGame.GameImageURL;
+            game.GameBanerImageURL = updatedGame.GameBanerImageURL;
+            game.GameImageIconURL = updatedGame.GameImageIconURL;
+            game.GameScreenShootImageURLs = updatedGame.GameScreenShootImageURLs;   
             game.GameLinkDownloadURL = updatedGame.GameLinkDownloadURL;
             await _context.SaveChangesAsync();
             return NoContent();
