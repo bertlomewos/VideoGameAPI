@@ -1,0 +1,17 @@
+.dockerignore
+# .NET build outputs
+bin/
+obj/
+
+# IDE
+.vscode/
+.vs/
+*.user
+
+# Git
+.git
+.gitignore
+
+# Others
+*.swp
+*.DS_Store
