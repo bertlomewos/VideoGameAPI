@@ -1,15 +1,10 @@
 services:
   - type: web
     name: videogame-api
-    env: docker
+    env: dotnet
     rootDir: VideoGameAPI
-    plan: free
-    autoDeploy: true
-    healthCheckPath: /weatherforecast
+    buildCommand: dotnet publish VideoGameAPI/VideoGameAPI.csproj -c Release -o out
+    startCommand: dotnet out/VideoGameAPI.dll
     envVars:
-      - key: ConnectionStrings__DefaultConnection
-        fromDatabase:
-          name: videogame-db
-          property: connectionString
-      - key: ASPNETCORE_ENVIRONMENT
-        value: Production
+      - key: DOTNET_RUNNING_IN_CONTAINER
+        value: true
