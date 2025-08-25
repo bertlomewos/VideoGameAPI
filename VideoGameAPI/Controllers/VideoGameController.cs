@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using VideoGameAPI.Data;
+using VideoGameAPI.Model;
 
 namespace VideoGameAPI.Controllers
 {
@@ -48,7 +49,8 @@ namespace VideoGameAPI.Controllers
             game.Platform = updatedGame.Platform;   
             game.Developer = updatedGame.Developer;
             game.Publisher = updatedGame.Publisher;
-
+            game.GameImageURL = updatedGame.GameImageURL;
+            game.GameLinkDownloadURL = updatedGame.GameLinkDownloadURL;
             await _context.SaveChangesAsync();
             return NoContent();
         }
