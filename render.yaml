@@ -1,26 +1,15 @@
-# render.yaml
-# Render Blueprint: defines the web service and (optionally) a managed Postgres database.
 services:
   - type: web
     name: videogame-api
     env: docker
+    rootDir: VideoGameAPI
     plan: free
     autoDeploy: true
-    # Render will auto-detect the Dockerfile at repo root
     healthCheckPath: /weatherforecast
-    # Make sure this matches the EXPOSE/ASPNETCORE_URLS port in Dockerfile
     envVars:
-      # Prefer pulling the connection string from the managed DB below.
       - key: ConnectionStrings__DefaultConnection
         fromDatabase:
           name: videogame-db
           property: connectionString
-      # Optional: ASP.NET Core environment
       - key: ASPNETCORE_ENVIRONMENT
         value: Production
-
-databases:
-  - name: videogame-db
-    plan: free
-    databaseName: videogame_api
-    user: videogame_user
